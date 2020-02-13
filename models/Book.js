@@ -5,16 +5,16 @@ var Schema = mongoose.Schema;
 var BookSchema = new Schema({
   title: {
     type: String,
-    required: true
+    // required: true
   },
   link: {
     type: String,
-    required: true
+    // required: true
   },
-//   image: {
-//       type:
-
-//   },
+  image: {
+      type: String,
+      
+  },
   note: {
     type: Schema.Types.ObjectId,
     ref: "Note"

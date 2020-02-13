@@ -26,18 +26,41 @@ mongoose.connect("mongodb://localhost/packt_db", { useNewUrlParser: true });
 app.get("/scrape", function (req, res) {
     axios.get("https://www.packtpub.com/").then(function (response) {
         var $ = cheerio.load(response.data);
-        $("h3").each(function (i, element) {
+        // $("div.bs_item").each(function (i, element) {
+        $("div.bs_item").each(function (i, element) {
+
+            console.log($(this).children("a").attr("href"));
+            console.log($(this).children("a").children("img").attr("src"));
+            console.log($(this).children("a").children("img").attr("alt"));
+
+            // console.log(element);
+
             var result = {};
-            // Add the text and href of every link, and save them as properties of the result object
-            result.title = $(this)
-                .children("a")
-                .text();
+            // result.title = $(this).children("a").text();
+          //  var title = $(element).attr("alt");
+
             result.link = $(this)
                 .children("a")
                 .attr("href");
-            result.imgLink = $(this)
+
+            result.title = $(this)
                 .children("a")
-                .attr("src");
+                .children("img")
+                .attr("alt")
+
+            result.image = $(this)
+                .children("a")
+                .children("img")
+                .attr("src")
+
+          //    var imgLink = $(element).attr("src");
+
+          //   result.push({
+          //  imgLink: imgLink, title: title
+          //   })
+  
+            // db.Book.insert({ imgLink: imgLink, title: title })
+
             // Create a new Book using the `result` object built from scraping
             db.Book.create(result)
                 .then(function (dbBook) {
@@ -54,8 +77,9 @@ app.get("/scrape", function (req, res) {
     });
 });
 
-//------------------------
 
+//PREVIOUS TECHNIQUE WORKING
+//------------------------
 //get img from website + src + alt
 // $("img").each(function (i, element) {
 
@@ -66,7 +90,7 @@ app.get("/scrape", function (req, res) {
 //     console.log(title)
 
 //     // results.push({
-//     //     mgLink: imgLink, title: title
+//     //     imgLink: imgLink, title: title
 //     // });
 
 //     db.scrapedData.insert({ imgLink: imgLink, title: title })
