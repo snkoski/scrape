@@ -99,7 +99,9 @@ app.get("/scrape", function (req, res) {
 //     db.scrapedData.insert({ imgLink: imgLink, title: title })
 // });
 //----------------------------
-
+app.get('/', function(req, res) {
+  res.json({'hello':'hello'})
+})
 
 // Route for getting all Articles from the db
 app.get("/books", function(req, res) {
