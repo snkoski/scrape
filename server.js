@@ -100,7 +100,7 @@ app.get("/scrape", function (req, res) {
 // });
 //----------------------------
 app.get('/', function(req, res) {
-  res.json({'hello':'hello'})
+  return 'hello world'
 })
 
 // Route for getting all Articles from the db
