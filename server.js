@@ -25,7 +25,6 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/packt_db";
 
 mongoose.connect(MONGODB_URI);
 
-
 // Routes
 app.get("/scrape", function (req, res) {
     axios.get("https://www.packtpub.com/").then(function (response) {
