@@ -1,14 +1,23 @@
 {
-  "name": "15.scrapingmongo",
+  "name": "Scraping_01",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "test",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EtienneWarneck/Scraping_01.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EtienneWarneck/Scraping_01/issues"
+  },
+  "homepage": "https://github.com/EtienneWarneck/Scraping_01#readme",
   "dependencies": {
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
