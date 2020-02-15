@@ -23,7 +23,7 @@ app.use(express.static("public"));
 // mongoose.connect("mongodb://localhost/packt_db", { useNewUrlParser: true });
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/packt_db";
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect("mongodb://heroku_ntzq8k8d:n65ik1cl6malct8e06p80jqt8b@ds213209.mlab.com:13209/heroku_ntzq8k8d");
 
 // Routes
 app.get("/scrape", function (req, res) {
@@ -99,9 +99,9 @@ app.get("/scrape", function (req, res) {
 //     db.scrapedData.insert({ imgLink: imgLink, title: title })
 // });
 //----------------------------
-app.get('/', function(req, res) {
-  return 'hello world'
-})
+// app.get('/', function(req, res) {
+//   return 'hello world'
+// })
 
 // Route for getting all Articles from the db
 app.get("/books", function(req, res) {
